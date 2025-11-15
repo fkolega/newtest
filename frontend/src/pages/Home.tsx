@@ -4,11 +4,11 @@ export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col bg-gray-200 dark:bg-gray-800">
       {/* Header */}
-      <header className="border-b border-slate-200 dark:border-slate-800">
-        <div className="py-4 px-6">
-          <h1 className="text-base font-semibold">
-            <span className="text-gray-800 dark:text-gray-100">Your</span>
-            <span className="text-gray-500 dark:text-gray-400 font-normal">Project</span>
+      <header className="bg-white dark:bg-gray-900 border-b border-gray-300 dark:border-gray-700 shadow-sm">
+        <div className="py-6 px-8">
+          <h1 className="text-lg font-bold">
+            <span className="text-gray-900 dark:text-gray-100">Your</span>
+            <span className="text-blue-600 dark:text-blue-400 font-semibold ml-1">Project</span>
           </h1>
         </div>
       </header>
