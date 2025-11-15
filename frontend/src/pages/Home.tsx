@@ -2,7 +2,7 @@ import { HealthIndicator } from "@/components/HealthIndicator"
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen flex flex-col bg-slate-100 dark:bg-slate-900">
+    <div className="min-h-screen flex flex-col bg-gray-200 dark:bg-gray-800">
       {/* Header */}
       <header className="border-b border-slate-200 dark:border-slate-800">
         <div className="py-4 px-6">
