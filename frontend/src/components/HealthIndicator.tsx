@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
 import { api_fetch } from '@/lib/api';
+import { Activity, Database, Clock, CheckCircle, AlertCircle } from 'lucide-react';
 
 interface HealthStatus {
   status: 'healthy' | 'unhealthy';
@@ -27,7 +28,7 @@ export function HealthIndicator() {
       if (isMounted.current) {
         setHealth({
           status: data.status === 'healthy' ? 'healthy' : 'unhealthy',
-          message: data.message || 'Server is available',
+          message: data.message || 'Sacred flames burn bright',
           timestamp: data.timestamp,
           mongodb: data.mongodb || 'unknown'
         });
@@ -36,7 +37,7 @@ export function HealthIndicator() {
       if (isMounted.current) {
         setHealth({
           status: 'unhealthy',
-          message: 'Cannot connect to backend',
+          message: 'The spirits have departed',
           timestamp: new Date().toISOString(),
           mongodb: 'unknown'
         });
@@ -69,27 +70,31 @@ export function HealthIndicator() {
 
   const getStatus = () => {
     if (!isActive) return { 
-      text: '[PING]', 
-      color: 'bg-gray-600', 
-      borderColor: 'brutalist-border',
+      text: 'Commune with Spirits', 
+      color: 'text-yellow-400', 
+      bgColor: 'bg-yellow-900/30',
+      icon: Activity,
       pulse: true 
     };
     if (isChecking) return { 
-      text: '[CONNECTING...]', 
-      color: 'bg-yellow-400', 
-      borderColor: 'brutalist-border-primary',
+      text: 'Consulting the Oracles...', 
+      color: 'text-yellow-300', 
+      bgColor: 'bg-yellow-800/40',
+      icon: Activity,
       pulse: true 
     };
     if (health?.status === 'healthy') return { 
-      text: '[PONG] SYSTEM_OK', 
-      color: 'bg-cyan-400', 
-      borderColor: 'brutalist-border-accent',
+      text: 'Spirits are Content', 
+      color: 'text-green-400', 
+      bgColor: 'bg-green-900/30',
+      icon: CheckCircle,
       pulse: false 
     };
     return { 
-      text: '[ERROR] NO_CONNECTION', 
-      color: 'bg-red-500', 
-      borderColor: 'brutalist-border-secondary',
+      text: 'Spirits Have Fled', 
+      color: 'text-red-400', 
+      bgColor: 'bg-red-900/30',
+      icon: AlertCircle,
       pulse: true 
     };
   };
@@ -102,20 +107,24 @@ export function HealthIndicator() {
       <button
         onClick={isClickable ? () => setIsActive(true) : undefined}
         disabled={!isClickable}
-        className={`w-full bg-black text-white mono font-bold text-lg py-4 px-6 ${status.borderColor} ${
-          isClickable ? 'brutalist-hover cursor-pointer brutalist-shadow' : 'cursor-default'
+        className={`w-full ${status.bgColor} text-foreground medieval-serif font-semibold text-lg py-4 px-6 medieval-border medieval-shadow ${
+          isClickable ? 'medieval-hover cursor-pointer' : 'cursor-default'
         } ${status.pulse ? 'animate-pulse' : ''}`}
       >
         <div className="flex items-center justify-between">
-          <div className="flex items-center">
-            <div className={`w-4 h-4 mr-4 ${status.color} ${status.pulse ? 'animate-pulse' : ''}`}></div>
-            <span>{status.text}</span>
+          <div className="flex items-center gap-3">
+            <status.icon className={`w-5 h-5 ${status.color} ${status.pulse ? 'animate-pulse' : ''}`} />
+            <span className={status.color}>{status.text}</span>
           </div>
           
           {health && health.status === 'healthy' && (
             <div className="text-right text-sm">
-              <div className="text-cyan-400">DB: {health.mongodb}</div>
-              <div className="text-white opacity-70">
+              <div className="text-green-400 flex items-center gap-1">
+                <Database className="w-4 h-4" />
+                {health.mongodb}
+              </div>
+              <div className="text-foreground/70 flex items-center gap-1">
+                <Clock className="w-4 h-4" />
                 {new Date(health.timestamp).toLocaleTimeString()}
               </div>
             </div>
@@ -123,28 +132,50 @@ export function HealthIndicator() {
         </div>
       </button>
 
-      {/* Additional system info when active */}
+      {/* Additional system info when active - Medieval styled */}
       {isActive && health && (
-        <div className="mt-4 bg-white text-black brutalist-border p-4">
-          <div className="mono text-sm space-y-2">
-            <div className="flex justify-between">
-              <span className="font-bold">STATUS:</span>
-              <span className={health.status === 'healthy' ? 'text-green-600' : 'text-red-600'}>
-                {health.status.toUpperCase()}
+        <div className="mt-4 parchment-bg medieval-border medieval-shadow p-6">
+          <h4 className="medieval-script font-bold text-lg text-brown-900 mb-4 text-center">
+            Oracle's Divination
+          </h4>
+          <div className="medieval-serif text-sm space-y-3 text-brown-800">
+            <div className="flex justify-between items-center">
+              <span className="font-semibold flex items-center gap-2">
+                <Activity className="w-4 h-4" />
+                Sacred Status:
+              </span>
+              <span className={`font-bold ${health.status === 'healthy' ? 'text-green-700' : 'text-red-700'}`}>
+                {health.status === 'healthy' ? 'Blessed' : 'Cursed'}
               </span>
             </div>
-            <div className="flex justify-between">
-              <span className="font-bold">MESSAGE:</span>
-              <span>{health.message}</span>
+            <div className="flex justify-between items-center">
+              <span className="font-semibold flex items-center gap-2">
+                <CheckCircle className="w-4 h-4" />
+                Divine Message:
+              </span>
+              <span className="text-right max-w-xs">{health.message}</span>
             </div>
-            <div className="flex justify-between">
-              <span className="font-bold">DATABASE:</span>
-              <span className="text-cyan-600">{health.mongodb}</span>
+            <div className="flex justify-between items-center">
+              <span className="font-semibold flex items-center gap-2">
+                <Database className="w-4 h-4" />
+                Sacred Scrolls:
+              </span>
+              <span className="text-green-700 font-mono">{health.mongodb}</span>
             </div>
-            <div className="flex justify-between">
-              <span className="font-bold">TIMESTAMP:</span>
-              <span>{new Date(health.timestamp).toLocaleString()}</span>
+            <div className="flex justify-between items-center">
+              <span className="font-semibold flex items-center gap-2">
+                <Clock className="w-4 h-4" />
+                Moment of Vision:
+              </span>
+              <span className="font-mono text-xs">{new Date(health.timestamp).toLocaleString()}</span>
             </div>
+          </div>
+          
+          {/* Medieval blessing at bottom */}
+          <div className="text-center mt-4 pt-4 border-t border-yellow-700">
+            <p className="medieval-script text-brown-700 text-xs italic">
+              "Thus speak the digital oracles"
+            </p>
           </div>
         </div>
       )}

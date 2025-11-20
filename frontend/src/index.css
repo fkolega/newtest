@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Space+Grotesk:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700;900&family=Uncial+Antiqua&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,50 +6,50 @@
 
 @layer base {
   :root {
-    /* Brutalist color scheme - high contrast */
-    --background: 0 0% 0%;  /* Pure black */
-    --foreground: 0 0% 100%;  /* Pure white */
-    --card: 0 0% 8%;  /* Very dark gray */
-    --card-foreground: 0 0% 100%;
-    --popover: 0 0% 8%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 55 100% 50%;  /* Electric yellow */
-    --primary-foreground: 0 0% 0%;
-    --secondary: 340 100% 50%;  /* Hot pink/red */
-    --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 70%;
-    --accent: 195 100% 50%;  /* Electric cyan */
-    --accent-foreground: 0 0% 0%;
-    --destructive: 0 100% 50%;  /* Pure red */
-    --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 100%;  /* White borders for harshness */
-    --input: 0 0% 8%;
-    --ring: 55 100% 50%;
-    --radius: 0rem;  /* No rounded corners - harsh angles */
+    /* Medieval color scheme - rich, earthy tones */
+    --background: 20 15% 8%;  /* Dark brown/black */
+    --foreground: 45 40% 85%;  /* Parchment white */
+    --card: 25 20% 12%;  /* Dark brown */
+    --card-foreground: 45 40% 85%;
+    --popover: 25 20% 12%;
+    --popover-foreground: 45 40% 85%;
+    --primary: 15 80% 45%;  /* Rich gold */
+    --primary-foreground: 20 15% 8%;
+    --secondary: 0 60% 40%;  /* Deep crimson */
+    --secondary-foreground: 45 40% 85%;
+    --muted: 25 15% 20%;
+    --muted-foreground: 45 20% 60%;
+    --accent: 25 100% 25%;  /* Forest green */
+    --accent-foreground: 45 40% 85%;
+    --destructive: 0 80% 50%;  /* Bright red */
+    --destructive-foreground: 45 40% 85%;
+    --border: 15 80% 45%;  /* Gold borders */
+    --input: 25 20% 12%;
+    --ring: 15 80% 45%;
+    --radius: 0rem;  /* No rounded corners for medieval feel */
     --spacing: 0rem;
   }
 
   .dark {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
-    --card: 0 0% 8%;
-    --card-foreground: 0 0% 100%;
-    --popover: 0 0% 8%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 55 100% 50%;
-    --primary-foreground: 0 0% 0%;
-    --secondary: 340 100% 50%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 70%;
-    --accent: 195 100% 50%;
-    --accent-foreground: 0 0% 0%;
-    --destructive: 0 100% 50%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 100%;
-    --input: 0 0% 8%;
-    --ring: 55 100% 50%;
+    --background: 20 15% 8%;
+    --foreground: 45 40% 85%;
+    --card: 25 20% 12%;
+    --card-foreground: 45 40% 85%;
+    --popover: 25 20% 12%;
+    --popover-foreground: 45 40% 85%;
+    --primary: 15 80% 45%;
+    --primary-foreground: 20 15% 8%;
+    --secondary: 0 60% 40%;
+    --secondary-foreground: 45 40% 85%;
+    --muted: 25 15% 20%;
+    --muted-foreground: 45 20% 60%;
+    --accent: 25 100% 25%;
+    --accent-foreground: 45 40% 85%;
+    --destructive: 0 80% 50%;
+    --destructive-foreground: 45 40% 85%;
+    --border: 15 80% 45%;
+    --input: 25 20% 12%;
+    --ring: 15 80% 45%;
     --radius: 0rem;
     --spacing: 0rem;
   }
@@ -62,164 +62,293 @@
   
   body {
     @apply bg-background text-foreground;
-    font-family: 'Space Grotesk', monospace;
+    font-family: 'Cinzel', serif;
     font-weight: 400;
-    line-height: 1.2;
+    line-height: 1.6;
     overflow-x: hidden;
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(218, 165, 32, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 100px,
+        rgba(218, 165, 32, 0.02) 100px,
+        rgba(218, 165, 32, 0.02) 102px
+      );
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', monospace;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: -0.02em;
-    line-height: 0.9;
+    font-family: 'Cinzel Decorative', serif;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    line-height: 1.2;
   }
   
-  .mono {
-    font-family: 'JetBrains Mono', monospace;
+  .medieval-script {
+    font-family: 'Uncial Antiqua', serif;
+  }
+  
+  .medieval-serif {
+    font-family: 'Cinzel', serif;
   }
 }
 
 @layer components {
-  /* Brutalist utility classes */
-  .brutalist-shadow {
-    box-shadow: 8px 8px 0px 0px theme(colors.white);
-  }
-  
-  .brutalist-shadow-primary {
-    box-shadow: 8px 8px 0px 0px theme(colors.yellow.400);
-  }
-  
-  .brutalist-shadow-secondary {
-    box-shadow: 8px 8px 0px 0px theme(colors.pink.500);
-  }
-  
-  .brutalist-shadow-accent {
-    box-shadow: 8px 8px 0px 0px theme(colors.cyan.400);
-  }
-  
-  .brutalist-border {
-    border: 4px solid theme(colors.white);
-  }
-  
-  .brutalist-border-primary {
-    border: 4px solid theme(colors.yellow.400);
-  }
-  
-  .brutalist-border-secondary {
-    border: 4px solid theme(colors.pink.500);
-  }
-  
-  .brutalist-border-accent {
-    border: 4px solid theme(colors.cyan.400);
-  }
-  
-  .brutalist-text-shadow {
-    text-shadow: 4px 4px 0px theme(colors.white);
-  }
-  
-  .brutalist-text-shadow-primary {
-    text-shadow: 4px 4px 0px theme(colors.yellow.400);
-  }
-  
-  .brutalist-hover {
-    transition: none;
-  }
-  
-  .brutalist-hover:hover {
-    transform: translate(-4px, -4px);
-  }
-  
-  .brutalist-glitch {
+  /* Medieval utility classes */
+  .medieval-border {
+    border: 3px solid;
+    border-image: linear-gradient(45deg, #DAA520, #B8860B, #DAA520) 1;
     position: relative;
   }
   
-  .brutalist-glitch::before,
-  .brutalist-glitch::after {
-    content: attr(data-text);
+  .medieval-border::before {
+    content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .brutalist-glitch::before {
-    animation: glitch-1 2s infinite;
-    color: theme(colors.cyan.400);
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    border: 1px solid rgba(218, 165, 32, 0.3);
+    pointer-events: none;
     z-index: -1;
   }
   
-  .brutalist-glitch::after {
-    animation: glitch-2 2s infinite;
-    color: theme(colors.pink.500);
-    z-index: -2;
+  .medieval-shadow {
+    box-shadow: 
+      4px 4px 8px rgba(0, 0, 0, 0.5),
+      inset 1px 1px 2px rgba(218, 165, 32, 0.3);
   }
   
-  @keyframes glitch-1 {
-    0%, 14%, 15%, 49%, 50%, 99%, 100% { transform: translate(0); }
-    15%, 49% { transform: translate(-2px, -2px); }
+  .medieval-shadow-gold {
+    box-shadow: 
+      4px 4px 12px rgba(218, 165, 32, 0.4),
+      inset 1px 1px 3px rgba(255, 215, 0, 0.2);
   }
   
-  @keyframes glitch-2 {
-    0%, 20%, 21%, 62%, 63%, 99%, 100% { transform: translate(0); }
-    21%, 62% { transform: translate(2px, 2px); }
+  .medieval-shadow-crimson {
+    box-shadow: 
+      4px 4px 12px rgba(139, 0, 0, 0.4),
+      inset 1px 1px 3px rgba(220, 20, 60, 0.2);
   }
   
-  .brutalist-noise {
+  .medieval-text-shadow {
+    text-shadow: 
+      2px 2px 4px rgba(0, 0, 0, 0.8),
+      1px 1px 2px rgba(218, 165, 32, 0.3);
+  }
+  
+  .medieval-glow {
     position: relative;
-    overflow: hidden;
   }
   
-  .brutalist-noise::before {
+  .medieval-glow::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(ellipse, rgba(218, 165, 32, 0.2) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  .medieval-hover {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .medieval-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      6px 6px 16px rgba(0, 0, 0, 0.6),
+      inset 1px 1px 4px rgba(218, 165, 32, 0.4);
+  }
+  
+  .parchment-bg {
+    background: linear-gradient(135deg, 
+      rgba(245, 245, 220, 0.95) 0%, 
+      rgba(222, 184, 135, 0.95) 25%,
+      rgba(245, 245, 220, 0.95) 50%,
+      rgba(222, 184, 135, 0.95) 75%,
+      rgba(245, 245, 220, 0.95) 100%
+    );
+    color: #2F1B14;
+    position: relative;
+  }
+  
+  .parchment-bg::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 20% 80%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(160, 82, 45, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(210, 180, 140, 0.1) 0%, transparent 30%);
+    pointer-events: none;
+  }
+  
+  .stone-bg {
+    background: linear-gradient(135deg, 
+      rgba(105, 105, 105, 0.95) 0%, 
+      rgba(128, 128, 128, 0.95) 25%,
+      rgba(105, 105, 105, 0.95) 50%,
+      rgba(119, 136, 153, 0.95) 75%,
+      rgba(105, 105, 105, 0.95) 100%
+    );
+    position: relative;
+  }
+  
+  .stone-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-image: 
       repeating-linear-gradient(
-        0deg,
+        45deg,
         transparent,
         transparent 1px,
-        rgba(255, 255, 255, 0.05) 1px,
-        rgba(255, 255, 255, 0.05) 2px
+        rgba(0, 0, 0, 0.1) 1px,
+        rgba(0, 0, 0, 0.1) 2px
       );
     pointer-events: none;
-    z-index: 10;
   }
   
-  /* Additional brutalist utilities */
-  .brutalist-border-b {
-    border-bottom: 4px solid;
+  .medieval-decoration {
+    position: relative;
   }
   
-  .brutalist-border-t {
-    border-top: 4px solid;
+  .medieval-decoration::before,
+  .medieval-decoration::after {
+    content: '❦';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #DAA520;
+    font-size: 1.5em;
+    opacity: 0.7;
   }
   
-  /* Custom animations for brutalist design */
-  @keyframes brutalist-pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.7; transform: scale(1.05); }
+  .medieval-decoration::before {
+    left: -2rem;
   }
   
-  .animate-brutalist-pulse {
-    animation: brutalist-pulse 2s ease-in-out infinite;
+  .medieval-decoration::after {
+    right: -2rem;
   }
   
-  /* Override default button styles */
-  button {
-    border: none;
-    background: none;
-    padding: 0;
-    font-family: inherit;
+  .illuminated-capital {
+    float: left;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 4em;
+    line-height: 0.8;
+    margin: 0.1em 0.2em 0 0;
+    color: #DAA520;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(135deg, #FFD700, #DAA520);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
   
-  /* Ensure sharp edges everywhere */
+  .medieval-flourish {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .medieval-flourish::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background-image: 
+      repeating-conic-gradient(from 0deg at 50% 50%, 
+        transparent 0deg, 
+        rgba(218, 165, 32, 0.1) 20deg, 
+        transparent 40deg
+      );
+    z-index: -1;
+    animation: rotate 20s linear infinite;
+  }
+  
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  .medieval-scroll {
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      rgba(218, 165, 32, 0.1) 10%, 
+      rgba(218, 165, 32, 0.2) 50%, 
+      rgba(218, 165, 32, 0.1) 90%, 
+      transparent 100%
+    );
+    border-left: 3px solid #DAA520;
+    border-right: 3px solid #DAA520;
+    position: relative;
+  }
+  
+  .medieval-scroll::before,
+  .medieval-scroll::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #DAA520;
+  }
+  
+  .medieval-scroll::before {
+    top: 0;
+  }
+  
+  .medieval-scroll::after {
+    bottom: 0;
+  }
+  
+  /* Ensure sharp medieval edges */
   * {
     border-radius: 0 !important;
+  }
+  
+  .medieval-button {
+    background: linear-gradient(135deg, #DAA520 0%, #B8860B 100%);
+    color: #2F1B14;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .medieval-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  .medieval-button:hover::before {
+    left: 100%;
+  }
+  
+  .medieval-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
   }
 }
