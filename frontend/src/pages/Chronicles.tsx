@@ -62,23 +62,23 @@ const chroniclesData = [
 export default function ChroniclesPage() {
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
-      {/* Medieval background decorative elements */}
+      {/* Medieval background decorative elements with animations */}
       <div className="absolute inset-0 pointer-events-none opacity-5">
-        <div className="absolute top-10 left-10 w-40 h-40 medieval-flourish">
-          <BookOpen className="w-full h-full text-yellow-600" />
+        <div className="absolute top-10 left-10 w-40 h-40 medieval-flourish animate-float animate-delay-100">
+          <BookOpen className="w-full h-full text-yellow-600 animate-slow-spin hover-glow" />
         </div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 medieval-flourish">
-          <Scroll className="w-full h-full text-yellow-600" />
+        <div className="absolute bottom-20 right-10 w-32 h-32 medieval-flourish animate-swing animate-delay-300">
+          <Scroll className="w-full h-full text-yellow-600 animate-reverse-spin hover-glow" />
         </div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-96 bg-gradient-to-b from-yellow-600/10 to-transparent"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-96 bg-gradient-to-b from-yellow-600/10 to-transparent animate-shimmer"></div>
       </div>
       
       {/* Header */}
       <header className="relative z-20 medieval-border border-primary stone-bg px-8 py-6">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <BookOpen className="w-12 h-12 text-yellow-500" />
-            <h1 className="text-4xl font-black text-foreground medieval-text-shadow medieval-script tracking-wider">
+          <div className="flex items-center gap-4 animate-slide-in-left">
+            <BookOpen className="w-12 h-12 text-yellow-500 animate-glow animate-swing" />
+            <h1 className="text-4xl font-black text-foreground medieval-text-shadow medieval-script tracking-wider animate-fade-in-up">
               The Ancient Chronicles
             </h1>
           </div>
@@ -97,12 +97,12 @@ export default function ChroniclesPage() {
         <div className="max-w-6xl mx-auto">
           {/* Introduction */}
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-black text-foreground mb-8 leading-none medieval-text-shadow medieval-decoration">
+            <h2 className="text-5xl font-black text-foreground mb-8 leading-none medieval-text-shadow medieval-decoration animate-bounce-in animate-glow particle-effects">
               SACRED KNOWLEDGE PRESERVED
             </h2>
-            <div className="parchment-bg medieval-border medieval-shadow p-8 max-w-4xl mx-auto">
-              <p className="text-xl medieval-serif text-brown-800 leading-relaxed">
-                <span className="illuminated-capital">W</span>ithin these hallowed digital archives lie chronicles gathered from the far corners of the known world. 
+            <div className="parchment-bg medieval-border medieval-shadow p-8 max-w-4xl mx-auto animate-page-flip animate-delay-300 hover-levitate">
+              <p className="text-xl medieval-serif text-brown-800 leading-relaxed animate-fade-in-up animate-delay-500">
+                <span className="illuminated-capital animate-sparkle">W</span>ithin these hallowed digital archives lie chronicles gathered from the far corners of the known world. 
                 Our scribes have translated these ancient texts from their original tongues, preserving the wisdom of distant lands and peoples. 
                 Each document bears witness to the diverse tapestry of human achievement across many realms.
               </p>
@@ -114,11 +114,11 @@ export default function ChroniclesPage() {
             {chroniclesData.map((chronicle, index) => (
               <article 
                 key={chronicle.id} 
-                className={`${chronicle.bgColor} medieval-border ${chronicle.borderColor} medieval-shadow p-8 ${index % 2 === 1 ? 'ml-auto max-w-5xl' : 'mr-auto max-w-5xl'}`}
+                className={`${chronicle.bgColor} medieval-border ${chronicle.borderColor} medieval-shadow p-8 ${index % 2 === 1 ? 'ml-auto max-w-5xl animate-slide-in-right' : 'mr-auto max-w-5xl animate-slide-in-left'} animate-delay-${(index + 1) * 100} hover-levitate particle-effects`}
               >
                 <div className="flex items-start gap-6">
-                  <div className={`p-4 ${chronicle.bgColor} medieval-border ${chronicle.borderColor} medieval-shadow-gold`}>
-                    <chronicle.icon className="w-12 h-12 text-yellow-400" />
+                  <div className={`p-4 ${chronicle.bgColor} medieval-border ${chronicle.borderColor} medieval-shadow-gold animate-bounce-in animate-delay-${(index + 2) * 100} hover-float`}>
+                    <chronicle.icon className="w-12 h-12 text-yellow-400 animate-glow hover-spin" />
                   </div>
                   
                   <div className="flex-1">

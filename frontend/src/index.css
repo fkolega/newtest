@@ -285,6 +285,182 @@
     to { transform: rotate(360deg); }
   }
   
+  /* Advanced Medieval Animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-10px) rotate(2deg); }
+    66% { transform: translateY(-5px) rotate(-1deg); }
+  }
+  
+  @keyframes bounceIn {
+    0% { 
+      opacity: 0;
+      transform: scale(0.3) rotate(-10deg);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05) rotate(5deg);
+    }
+    70% {
+      transform: scale(0.95) rotate(-2deg);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+  }
+  
+  @keyframes slideInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-100px) rotate(-5deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0) rotate(0deg);
+    }
+  }
+  
+  @keyframes slideInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(100px) rotate(5deg);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0) rotate(0deg);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-2px) rotate(-0.5deg); }
+    20%, 40%, 60%, 80% { transform: translateX(2px) rotate(0.5deg); }
+  }
+  
+  @keyframes glow {
+    0%, 100% {
+      text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.8),
+        1px 1px 2px rgba(218, 165, 32, 0.3),
+        0 0 10px rgba(218, 165, 32, 0.2);
+    }
+    50% {
+      text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.8),
+        1px 1px 2px rgba(218, 165, 32, 0.6),
+        0 0 20px rgba(218, 165, 32, 0.4),
+        0 0 30px rgba(218, 165, 32, 0.2);
+    }
+  }
+  
+  @keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+      opacity: 1;
+      text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.8),
+        1px 1px 2px rgba(218, 165, 32, 0.3);
+    }
+    20%, 24%, 55% {
+      opacity: 0.8;
+      text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.8),
+        1px 1px 2px rgba(218, 165, 32, 0.1);
+    }
+  }
+  
+  @keyframes swing {
+    0%, 100% { transform: rotate(0deg) translateY(0px); }
+    25% { transform: rotate(3deg) translateY(-2px); }
+    50% { transform: rotate(0deg) translateY(-4px); }
+    75% { transform: rotate(-3deg) translateY(-2px); }
+  }
+  
+  @keyframes levitate {
+    0%, 100% { 
+      transform: translateY(0px) scale(1);
+      box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+    }
+    50% { 
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 6px 12px 20px rgba(0, 0, 0, 0.3);
+    }
+  }
+  
+  @keyframes sparkle {
+    0%, 100% {
+      opacity: 0;
+      transform: scale(0) rotate(0deg);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1) rotate(180deg);
+    }
+  }
+  
+  @keyframes typewriter {
+    0% { width: 0; }
+    100% { width: 100%; }
+  }
+  
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+  
+  @keyframes ripple {
+    0% {
+      transform: scale(1);
+      opacity: 0.7;
+    }
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes pageFlip {
+    0% {
+      transform: rotateY(0deg) translateZ(0);
+    }
+    50% {
+      transform: rotateY(-90deg) translateZ(-20px);
+      opacity: 0.7;
+    }
+    100% {
+      transform: rotateY(0deg) translateZ(0);
+    }
+  }
+  
+  @keyframes drawBorder {
+    0% {
+      border-width: 0;
+    }
+    100% {
+      border-width: 3px;
+    }
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+  
   .medieval-scroll {
     background: linear-gradient(90deg, 
       transparent 0%, 
@@ -316,6 +492,161 @@
     bottom: 0;
   }
   
+  /* Animation utility classes */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-bounce-in {
+    animation: bounceIn 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .animate-slide-in-left {
+    animation: slideInLeft 0.8s ease-out;
+  }
+  
+  .animate-slide-in-right {
+    animation: slideInRight 0.8s ease-out;
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+  }
+  
+  .animate-shake {
+    animation: shake 1s infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 3s ease-in-out infinite;
+  }
+  
+  .animate-flicker {
+    animation: flicker 4s linear infinite;
+  }
+  
+  .animate-swing {
+    animation: swing 3s ease-in-out infinite;
+  }
+  
+  .animate-levitate {
+    animation: levitate 4s ease-in-out infinite;
+  }
+  
+  .animate-sparkle {
+    animation: sparkle 2s ease-in-out infinite;
+  }
+  
+  .animate-slow-spin {
+    animation: rotate 8s linear infinite;
+  }
+  
+  .animate-reverse-spin {
+    animation: rotate 12s linear infinite reverse;
+  }
+  
+  .animate-page-flip {
+    animation: pageFlip 2s ease-in-out;
+  }
+  
+  .animate-typewriter {
+    overflow: hidden;
+    border-right: 2px solid #DAA520;
+    white-space: nowrap;
+    animation: typewriter 3s steps(40) 1s both, blink 0.75s step-end infinite;
+  }
+  
+  .animate-draw-border {
+    animation: drawBorder 1.5s ease-out;
+  }
+  
+  .animate-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(218, 165, 32, 0.4), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+  
+  /* Hover animations */
+  .hover-float:hover {
+    animation: float 2s ease-in-out infinite;
+  }
+  
+  .hover-glow:hover {
+    animation: glow 1s ease-in-out infinite;
+  }
+  
+  .hover-shake:hover {
+    animation: shake 0.5s ease-in-out;
+  }
+  
+  .hover-levitate:hover {
+    animation: levitate 2s ease-in-out infinite;
+  }
+  
+  .hover-spin:hover {
+    animation: rotate 1s linear infinite;
+  }
+  
+  /* Staggered animations */
+  .animate-delay-100 { animation-delay: 0.1s; }
+  .animate-delay-200 { animation-delay: 0.2s; }
+  .animate-delay-300 { animation-delay: 0.3s; }
+  .animate-delay-500 { animation-delay: 0.5s; }
+  .animate-delay-700 { animation-delay: 0.7s; }
+  .animate-delay-1000 { animation-delay: 1s; }
+  
+  /* Interactive effects */
+  .ripple-effect {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .ripple-effect::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(218, 165, 32, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+  
+  .ripple-effect:hover::after {
+    width: 300px;
+    height: 300px;
+  }
+  
+  /* Medieval particle effects */
+  .particle-effects {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .particle-effects::before,
+  .particle-effects::after {
+    content: '✦';
+    position: absolute;
+    color: #DAA520;
+    opacity: 0;
+    pointer-events: none;
+    animation: sparkle 3s infinite;
+  }
+  
+  .particle-effects::before {
+    top: 20%;
+    right: 10%;
+    animation-delay: 0s;
+  }
+  
+  .particle-effects::after {
+    bottom: 20%;
+    left: 10%;
+    animation-delay: 1.5s;
+  }
+
   /* Ensure sharp medieval edges */
   * {
     border-radius: 0 !important;
