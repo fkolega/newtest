@@ -1,53 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&family=Space+Grotesk:wght@400;700;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222.2 84% 4.9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
-    --radius: 0.5rem;
-    --spacing: 0.25rem;
+    /* Brutalist color scheme - high contrast */
+    --background: 0 0% 0%;  /* Pure black */
+    --foreground: 0 0% 100%;  /* Pure white */
+    --card: 0 0% 8%;  /* Very dark gray */
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 55 100% 50%;  /* Electric yellow */
+    --primary-foreground: 0 0% 0%;
+    --secondary: 340 100% 50%;  /* Hot pink/red */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 195 100% 50%;  /* Electric cyan */
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 100% 50%;  /* Pure red */
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 100%;  /* White borders for harshness */
+    --input: 0 0% 8%;
+    --ring: 55 100% 50%;
+    --radius: 0rem;  /* No rounded corners - harsh angles */
+    --spacing: 0rem;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 84% 4.9%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 94.1%;
-    --spacing: 0.25rem;
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 55 100% 50%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 340 100% 50%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 195 100% 50%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 100%;
+    --input: 0 0% 8%;
+    --ring: 55 100% 50%;
+    --radius: 0rem;
+    --spacing: 0rem;
   }
 }
 
@@ -55,7 +59,167 @@
   * {
     @apply border-border;
   }
+  
   body {
     @apply bg-background text-foreground;
+    font-family: 'Space Grotesk', monospace;
+    font-weight: 400;
+    line-height: 1.2;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', monospace;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 0.9;
+  }
+  
+  .mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  /* Brutalist utility classes */
+  .brutalist-shadow {
+    box-shadow: 8px 8px 0px 0px theme(colors.white);
+  }
+  
+  .brutalist-shadow-primary {
+    box-shadow: 8px 8px 0px 0px theme(colors.yellow.400);
+  }
+  
+  .brutalist-shadow-secondary {
+    box-shadow: 8px 8px 0px 0px theme(colors.pink.500);
+  }
+  
+  .brutalist-shadow-accent {
+    box-shadow: 8px 8px 0px 0px theme(colors.cyan.400);
+  }
+  
+  .brutalist-border {
+    border: 4px solid theme(colors.white);
+  }
+  
+  .brutalist-border-primary {
+    border: 4px solid theme(colors.yellow.400);
+  }
+  
+  .brutalist-border-secondary {
+    border: 4px solid theme(colors.pink.500);
+  }
+  
+  .brutalist-border-accent {
+    border: 4px solid theme(colors.cyan.400);
+  }
+  
+  .brutalist-text-shadow {
+    text-shadow: 4px 4px 0px theme(colors.white);
+  }
+  
+  .brutalist-text-shadow-primary {
+    text-shadow: 4px 4px 0px theme(colors.yellow.400);
+  }
+  
+  .brutalist-hover {
+    transition: none;
+  }
+  
+  .brutalist-hover:hover {
+    transform: translate(-4px, -4px);
+  }
+  
+  .brutalist-glitch {
+    position: relative;
+  }
+  
+  .brutalist-glitch::before,
+  .brutalist-glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .brutalist-glitch::before {
+    animation: glitch-1 2s infinite;
+    color: theme(colors.cyan.400);
+    z-index: -1;
+  }
+  
+  .brutalist-glitch::after {
+    animation: glitch-2 2s infinite;
+    color: theme(colors.pink.500);
+    z-index: -2;
+  }
+  
+  @keyframes glitch-1 {
+    0%, 14%, 15%, 49%, 50%, 99%, 100% { transform: translate(0); }
+    15%, 49% { transform: translate(-2px, -2px); }
+  }
+  
+  @keyframes glitch-2 {
+    0%, 20%, 21%, 62%, 63%, 99%, 100% { transform: translate(0); }
+    21%, 62% { transform: translate(2px, 2px); }
+  }
+  
+  .brutalist-noise {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .brutalist-noise::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 1px,
+        rgba(255, 255, 255, 0.05) 1px,
+        rgba(255, 255, 255, 0.05) 2px
+      );
+    pointer-events: none;
+    z-index: 10;
+  }
+  
+  /* Additional brutalist utilities */
+  .brutalist-border-b {
+    border-bottom: 4px solid;
+  }
+  
+  .brutalist-border-t {
+    border-top: 4px solid;
+  }
+  
+  /* Custom animations for brutalist design */
+  @keyframes brutalist-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.05); }
+  }
+  
+  .animate-brutalist-pulse {
+    animation: brutalist-pulse 2s ease-in-out infinite;
+  }
+  
+  /* Override default button styles */
+  button {
+    border: none;
+    background: none;
+    padding: 0;
+    font-family: inherit;
+  }
+  
+  /* Ensure sharp edges everywhere */
+  * {
+    border-radius: 0 !important;
   }
 }
