@@ -1,5 +1,6 @@
 import { HealthIndicator } from "@/components/HealthIndicator"
-import { Crown, Sword, Shield, Scroll, Castle, Users } from "lucide-react"
+import { Crown, Sword, Shield, Scroll, Castle, Users, BookOpen } from "lucide-react"
+import { Link } from "react-router-dom"
 
 export default function HomePage() {
   return (
@@ -50,6 +51,15 @@ export default function HomePage() {
               Prepare thyself for a journey through realms both familiar and strange.
             </p>
             <div className="flex flex-col md:flex-row gap-6 items-center justify-center">
+              <Link 
+                to="/chronicles"
+                className="medieval-button medieval-border medieval-shadow-gold px-8 py-4 medieval-hover inline-block"
+              >
+                <div className="flex items-center gap-3">
+                  <BookOpen className="w-6 h-6" />
+                  <span className="text-xl font-bold medieval-serif">SACRED CHRONICLES</span>
+                </div>
+              </Link>
               <button className="medieval-button medieval-border medieval-shadow-gold px-8 py-4 medieval-hover">
                 <div className="flex items-center gap-3">
                   <Scroll className="w-6 h-6" />
@@ -175,9 +185,12 @@ export default function HomePage() {
             Anno Domini {new Date().getFullYear()} • Digital Scriptorium
           </div>
           <div className="flex gap-4">
-            <button className="medieval-button px-4 py-2 medieval-border medieval-shadow medieval-hover">
-              <span className="medieval-serif font-bold">SUMMON SCRIBE</span>
-            </button>
+            <Link 
+              to="/chronicles" 
+              className="medieval-button px-4 py-2 medieval-border medieval-shadow medieval-hover inline-block"
+            >
+              <span className="medieval-serif font-bold">CHRONICLES</span>
+            </Link>
             <button className="medieval-button px-4 py-2 medieval-border medieval-shadow medieval-hover">
               <span className="medieval-serif font-bold">GUILD CHARTER</span>
             </button>
