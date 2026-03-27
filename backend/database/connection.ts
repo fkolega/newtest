@@ -8,7 +8,7 @@ export const connect_to_mongodb = async (): Promise<Db> => {
     return database;
   }
 
-  const mongodb_uri = process.env.MONGODB_URI || 'mongodb://localhost:27017';
+  const mongodb_uri = process.env.MONGODB_URI || 'mongodb+srv://293f8jaw98fj398@databaseproduction.9382faef.mongodb.net/proddb';
   const database_name = process.env.DATABASE_NAME || 'app_database';
 
   try {
